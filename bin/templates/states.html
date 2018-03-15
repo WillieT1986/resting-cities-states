@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>A list of States</title>
+</head>
+
+<body>
+	<header>
+		<h1>A List of Courses</h1>
+	</header>
+
+	<div th:each="state: ${states}">
+		<h2>
+			<a th:href="@{/state(id=${state.id})}" th:text="${state.stateName}"></a>
+		</h2>
+	</div>
+</body>
+</html>

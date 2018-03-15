@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class State {
 
@@ -18,6 +20,7 @@ public class State {
 	private long id;
 	private String stateName;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "state")
 	private Collection<Cities> cities;
 

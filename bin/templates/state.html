@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>A State</title>
+</head>
+
+<body>
+
+	<header>
+		<h1> A State </h1>
+	</header>
+
+	<div th:each="state: ${states}">
+		<h2 th:text="${state.stateName}"></h2>
+		<a href="http://localhost:8080/show-states">Back to home</a>
+	</div>
+
+</body>
+</html>

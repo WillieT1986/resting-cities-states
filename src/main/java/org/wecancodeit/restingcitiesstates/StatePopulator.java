@@ -25,13 +25,17 @@ public class StatePopulator implements CommandLineRunner {
 		stateRepo.save(nevada);
 
 		Cities columbus = new Cities("Columbus", ohio);
+		Cities cleveland = new Cities("Cleveland", ohio);
+		Cities wooster = new Cities("Wooster", ohio);
 		Cities roanoke = new Cities("Roanoke", virginia);
+		Cities bluefield = new Cities("Bluefield", virginia);
 		Cities reno = new Cities("Reno", nevada);
 
 		cityRepo.save(columbus);
+		cityRepo.save(cleveland);
+		cityRepo.save(wooster);
 		cityRepo.save(roanoke);
+		cityRepo.save(bluefield);
 		cityRepo.save(reno);
-
 	}
-
 }
