@@ -1,5 +1,6 @@
 package org.wecancodeit.restingcitiesstates;
 
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -22,11 +23,11 @@ public class JpaMappingTest {
 	StateRepository stateRepo;
 
 	@Resource
-	CityRepository cityRepo;
+	CitiesRepository cityRepo;
 
 	@Test
 	public void shouldSaveAndLoadState() {
-		State state = new State(null, "State Name");
+		State state = new State("State Name");
 		state = stateRepo.save(state);
 		long stateId = state.getId();
 
@@ -39,14 +40,20 @@ public class JpaMappingTest {
 
 	@Test
 	public void shouldSaveCityToStateRelationship() {
-		City city = new City("City Name");
-		cityRepo.save(city);
-		long cityId = city.getId();
+		State state = new State("City Name");
+		stateRepo.save(state);
+		long stateId = state.getId();
 
-		State first = new State(city, "State Name");
-		first = stateRepo.save(first);
+		Cities first = new Cities(state, "City Name");
+		first = cityRepo.save(first);
 
-		State second = new State(city, "State Name");
-		second = stateRepo.save(second);
+		Cities second = new Cities(state, "City Name");
+		second = cityRepo.save(second);
+
+		entityManager.flush();
+		entityManager.clear();
+
+		state = stateRepo.findOne(stateId);
+		assertThat(state.getCities(), containsInAnyOrder(first, second));
 	}
 }
