@@ -20,7 +20,7 @@ public class Cities {
 
 	}
 
-	public Cities(State state, String cityName) {
+	public Cities(String cityName, State state) {
 		this.state = state;
 		this.cityName = cityName;
 	}

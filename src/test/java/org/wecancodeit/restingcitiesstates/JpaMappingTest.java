@@ -44,10 +44,10 @@ public class JpaMappingTest {
 		stateRepo.save(state);
 		long stateId = state.getId();
 
-		Cities first = new Cities(state, "City Name");
+		Cities first = new Cities("City Name", state);
 		first = cityRepo.save(first);
 
-		Cities second = new Cities(state, "City Name");
+		Cities second = new Cities("City Name", state);
 		second = cityRepo.save(second);
 
 		entityManager.flush();
@@ -56,4 +56,5 @@ public class JpaMappingTest {
 		state = stateRepo.findOne(stateId);
 		assertThat(state.getCities(), containsInAnyOrder(first, second));
 	}
+
 }
