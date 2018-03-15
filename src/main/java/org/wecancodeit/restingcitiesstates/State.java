@@ -18,7 +18,7 @@ public class State {
 	private long id;
 	private String stateName;
 
-	@OneToMany
+	@OneToMany(mappedBy = "state")
 	private Collection<Cities> cities;
 
 	public State() {

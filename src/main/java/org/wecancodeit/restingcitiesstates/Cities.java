@@ -52,5 +52,4 @@ public class Cities {
 		}
 		return id == ((Cities) obj).id;
 	}
-
 }
