@@ -2,18 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>A list of States</title>
+<title>A State</title>
 </head>
 
 <body>
+
 	<header>
-		<h1>A List of Courses</h1>
+		<h1> A State </h1>
 	</header>
 
 	<div th:each="state: ${states}">
-		<h2>
-			<a th:href="@{/state(id=${state.id})}" th:text="${state.stateName}"></a>
-		</h2>
+		<h2 th:text="${state.stateName}"></h2>
+		<a href="http://localhost:8080/show-states">Back to home</a>
 	</div>
+
 </body>
 </html>
