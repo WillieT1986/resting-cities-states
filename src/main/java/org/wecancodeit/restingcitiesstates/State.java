@@ -16,7 +16,7 @@ public class State {
 
 	}
 
-	public State(String stateName) {
+	public State(City city, String stateName) {
 		this.stateName = stateName;
 	}
 

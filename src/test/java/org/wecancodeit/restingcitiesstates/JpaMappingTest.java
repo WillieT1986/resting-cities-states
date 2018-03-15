@@ -26,7 +26,7 @@ public class JpaMappingTest {
 
 	@Test
 	public void shouldSaveAndLoadState() {
-		State state = new State("State Name");
+		State state = new State(null, "State Name");
 		state = stateRepo.save(state);
 		long stateId = state.getId();
 
@@ -42,5 +42,11 @@ public class JpaMappingTest {
 		City city = new City("City Name");
 		cityRepo.save(city);
 		long cityId = city.getId();
+
+		State first = new State(city, "State Name");
+		first = stateRepo.save(first);
+
+		State second = new State(city, "State Name");
+		second = stateRepo.save(second);
 	}
 }
